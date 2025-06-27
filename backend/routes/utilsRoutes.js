@@ -8,7 +8,7 @@ router.get('/edad/:id', async (req, res) => {
   res.json(result[0]);
 });
 
-// Función promedio leche
+// función promedio leche
 router.get('/promedio/:id', async (req, res) => {
   const [result] = await utils.promedioLeche(req.params.id);
   res.json(result[0]);
@@ -21,10 +21,23 @@ router.post('/parto', async (req, res) => {
   res.json({ status: 'Parto registrado' });
 });
 
-// Procedimiento actualizar peso
+// Procedimiento Actualizar peso
 router.put('/peso/:id', async (req, res) => {
   await utils.actualizarPeso(req.params.id, req.body.peso);
   res.json({ status: 'Peso actualizado' });
 });
+
+// resumen de animales
+router.get('/resumen', async (req, res) => {
+  const [result] = await utils.resumenAnimales();
+  res.json(result);
+});
+
+// resumen general
+router.get('/general', async (req, res) => {
+  const [result] = await utils.resumenGeneral();
+  res.json(result[0]);
+});
+
 
 module.exports = router;

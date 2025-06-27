@@ -1,4 +1,4 @@
-//Con este Archivo se llama en la terminal (hay que colocar: npm app.js en la carpeta backend)
+//Con este archivo se llama en la terminal (hay que colocar: npm start en la terminal de la carpeta backend)
 
 const express = require('express');
 const cors = require('cors');

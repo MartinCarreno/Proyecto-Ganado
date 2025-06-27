@@ -1,7 +1,7 @@
 const db = require('../db');
 
 module.exports = {
-  getAll: () => db.query('SELECT * FROM animal'),
+  getAll: () => db.query('SELECT * FROM animales'),
   getById: (id) => db.query('SELECT * FROM animales WHERE id = ?', [id]),
   create: (data) =>
     db.query('INSERT INTO animales (nombre, tipo, raza, fecha_nacimiento, peso) VALUES (?, ?, ?, ?, ?)', [

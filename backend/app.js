@@ -1,24 +1,27 @@
+//Con este Archivo se llama en la terminal (hay que colocar: npm app.js en la carpeta backend)
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const animalRoutes = require('./routes/animalRoutes');
-const utilsRoutes = require('./routes/utilsRoutes');
-const vacunaRoutes = require('./routes/vacunaRoutes');
-const produccionRoutes = require('./routes/produccionRoutes');
+const port = 3000;
 
-
-app.use('/api/produccion', produccionRoutes);
-
-app.use('/api/vacunas', vacunaRoutes);
-
-app.use('/api/utils', utilsRoutes);
-
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/animales', animalRoutes);
+// Rutas
+const animalRoutes = require('./routes/animalRoutes');
+const vacunaRoutes = require('./routes/vacunaRoutes');
+const produccionRoutes = require('./routes/produccionRoutes');
+const utilsRoutes = require('./routes/utilsRoutes');
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
+// Usar rutas con prefijo /api
+app.use('/api/animales', animalRoutes);
+app.use('/api/vacunas', vacunaRoutes);
+app.use('/api/produccion', produccionRoutes);
+app.use('/api/utils', utilsRoutes);
+
+// Inicio del servidor
+app.listen(port, () => {
+  console.log(`Servidor backend escuchando en http://localhost:${port}`);
 });

@@ -10,13 +10,13 @@ CREATE PROCEDURE registrar_parto (
     IN p_cria_nombre VARCHAR(100)
 )
 BEGIN
-    INSERT INTO parto (animal_id, fecha, resultado, cria_nombre)
+    INSERT INTO partos (animal_id, fecha, resultado, cria_nombre)
     VALUES (p_animal_id, p_fecha, p_resultado, p_cria_nombre);
 
     IF p_resultado = 'exitoso' THEN
-        INSERT INTO animal (nombre, tipo, raza, fecha_nacimiento, estado)
+        INSERT INTO animales (nombre, tipo, raza, fecha_nacimiento, estado)
         SELECT p_cria_nombre, 'cría', raza, p_fecha, 'activo'
-        FROM animal WHERE id = p_animal_id;
+        FROM animales WHERE id = p_animal_id;
     END IF;
 END$$
 
@@ -31,7 +31,7 @@ CREATE PROCEDURE actualizar_peso (
     IN nuevo_peso DECIMAL(5,2)
 )
 BEGIN
-    UPDATE animal
+    UPDATE animales
     SET peso = nuevo_peso
     WHERE id = p_animal_id;
 END$$
@@ -52,9 +52,9 @@ BEGIN
     a.estado,
     edad_animal(a.id) AS edad,
     promedio_leche(a.id) AS promedio
-  FROM animal a
+  FROM animales a
   WHERE a.estado = 'activo';
-END;
+END
 //
 DELIMITER ;
 
@@ -67,7 +67,7 @@ BEGIN
     COUNT(*) AS total_animales,
     ROUND(AVG(edad_animal(id)), 2) AS edad_promedio,
     ROUND(AVG(promedio_leche(id)), 2) AS promedio_general
-  FROM animal
+  FROM animales
   WHERE estado = 'activo';
 END;
 //

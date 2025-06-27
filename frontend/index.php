@@ -1,6 +1,14 @@
 <?php
-$data = file_get_contents("http://localhost:3000/api/animales");
-$animales = json_decode($data, true);
+$animales = json_decode(file_get_contents("http://localhost:3000/api/utils/resumen"), true);
+$stats = json_decode(file_get_contents("http://localhost:3000/api/utils/general"), true);
+
+// Ajuste para acceder correctamente a los animales:
+if (isset($animales[0]) && isset($animales[0][0])) {
+    $animales = $animales[0];
+} elseif (isset($animales[0])) {
+    $animales = $animales[0];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,18 +26,18 @@ $animales = json_decode($data, true);
 <h1>Sistema de Registro Ganadero</h1>
 
 <div class="resumen">
-  <h3>📊 Estadísticas generales</h3>
-  <p>🐄 Total de animales activos: <strong><?= $stats['total_animales'] ?></strong></p>
-  <p>📅 Edad promedio: <strong><?= $stats['edad_promedio'] ?> años</strong></p>
-  <p>🥛 Producción promedio diaria: <strong><?= $stats['promedio_general'] ?> litros</strong></p>
+  <h3> Estadísticas generales</h3>
+  <p> Total de animales activos: <strong><?= $stats['total_animales'] ?></strong></p>
+  <p> Edad promedio: <strong><?= $stats['edad_promedio'] ?> años</strong></p>
+  <p> Producción promedio diaria: <strong><?= $stats['promedio_general'] ?> litros</strong></p>
 </div>
 
 <nav>
-  <a class="button" href="crear.php"> + Registrar nuevo animal</a>
+  <a class="button" href="crear.php">+ Registrar nuevo animal</a>
   <a class="button" href="registrar_vacuna.php">Registrar vacuna</a>
   <a class="button" href="registrar_produccion.php">Registrar producción</a>
   <a class="button" href="crear_parto.php">Registrar parto</a>
-  <a class="button" href="estadisticas.php">Ver estadísticas</a>
+  <a class="button" href="estadisticas.php">Ver estadísticas detalladas</a>
 </nav>
 
 <br><hr><br>
@@ -55,7 +63,6 @@ $animales = json_decode($data, true);
   </td>
 </tr>
 <?php endforeach; ?>
-
 </table>
 
 </body>

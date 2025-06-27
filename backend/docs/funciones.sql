@@ -9,7 +9,7 @@ BEGIN
     DECLARE edad INT;
     SELECT TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE())
     INTO edad
-    FROM animal
+    FROM animales
     WHERE id = p_id;
     RETURN edad;
 END$$

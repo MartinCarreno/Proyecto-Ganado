@@ -9,6 +9,13 @@ if (isset($animales[0]) && isset($animales[0][0])) {
     $animales = $animales[0];
 }
 
+if (isset($stats[0]) && isset($stats[0][0])) {
+    $stats = $stats[0];
+} elseif (isset($stats[0])) {
+    $stats = $stats[0];
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>

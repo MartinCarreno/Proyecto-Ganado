@@ -67,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="F">Hembra</option>
         </select><br><br>
 
-        <label for="cria_nombre">Nombre de cría (opcional):</label>
-        <input type="text" name="cria_nombre"><br><br>
+        <label for="cria_nombre">Nombre de cría:</label>
+        <input type="text" name="cria_nombre" required><br><br>
 
         <button type="submit">Registrar Parto</button>
     </form>

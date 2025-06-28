@@ -2,6 +2,11 @@
 $animales = json_decode(file_get_contents("http://localhost:3000/api/utils/resumen"), true);
 $stats = json_decode(file_get_contents("http://localhost:3000/api/utils/general"), true);
 
+// Debuggear
+
+// var_dump($animales);
+// exit;
+
 // Ajuste para acceder correctamente a los animales:
 if (isset($animales[0]) && isset($animales[0][0])) {
     $animales = $animales[0];

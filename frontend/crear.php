@@ -15,18 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <form method="post">
-  Nombre: <input name="nombre"><br>
-  Tipo: <select name="tipo">
+  Nombre: <input name="nombre" required><br>
+  Tipo: <select name="tipo" required>
     <option value="vaca">Vaca</option>
     <option value="toro">Toro</option>
     <option value="cría">Cría</option>
   </select><br>
-  Sexo: <select name="sexo">
+  Sexo: <select name="sexo" required>
     <option value="M">Macho</option>
     <option value="F">Hembra</option>
   </select><br>
-  Raza: <input name="raza"><br>
-  Fecha Nac: <input type="date" name="fecha_nacimiento"><br>
-  Peso: <input type="number" step="0.1" name="peso"><br>
+  Raza: <input name="raza" required><br>
+  Fecha Nac: <input type="date" name="fecha_nacimiento" required><br>
+  Peso: <input type="number" step="0.1" name="peso" required><br>
   <button type="submit">Guardar</button>
 </form>

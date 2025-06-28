@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <form method="post">
-  ID animal: <input name="animal_id"><br>
-  Vacuna: <input name="nombre_vacuna"><br>
-  Fecha: <input type="date" name="fecha_aplicacion"><br>
-  Veterinario: <input name="veterinario"><br>
+  ID animal: <input name="animal_id" required><br>
+  Vacuna: <input name="nombre_vacuna" required><br>
+  Fecha: <input type="date" name="fecha_aplicacion" required><br>
+  Veterinario: <input name="veterinario" required><br>
   <button type="submit">Registrar vacuna</button>
 </form>

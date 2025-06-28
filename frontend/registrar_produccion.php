@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <form method="post">
-  ID animal: <input name="animal_id"><br>
-  Fecha: <input type="date" name="fecha"><br>
-  Litros: <input type="number" step="0.1" name="litros"><br>
+  ID animal: <input name="animal_id" required><br>
+  Fecha: <input type="date" name="fecha" required><br>
+  Litros: <input type="number" step="0.1" name="litros" required><br>
   <button type="submit">Guardar</button>
 </form>

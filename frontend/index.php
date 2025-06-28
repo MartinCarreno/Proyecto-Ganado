@@ -3,7 +3,6 @@ $animales = json_decode(file_get_contents("http://localhost:3000/api/utils/resum
 $stats = json_decode(file_get_contents("http://localhost:3000/api/utils/general"), true);
 
 // Debuggear
-
 // var_dump($animales);
 // exit;
 
@@ -57,21 +56,30 @@ if (isset($stats[0]) && isset($stats[0][0])) {
 <h2>Animales Registrados</h2>
 <table>
 <tr>
-  <th>ID</th><th>Nombre</th><th>Tipo</th><th>Raza</th><th>Estado</th>
-  <th>Edad</th><th>Promedio Leche</th><th>Acciones</th>
+  <th>ID</th>
+  <th>Nombre</th>
+  <th>Tipo</th>
+  <th>Sexo</th>
+  <th>Raza</th>
+  <th>Estado</th>
+  <th>Edad</th>
+  <th>Promedio Leche</th>
+  <th>Acciones</th>
 </tr>
 <?php foreach ($animales as $animal): ?>
 <tr>
   <td><?= $animal['id'] ?></td>
   <td><?= $animal['nombre'] ?></td>
   <td><?= $animal['tipo'] ?></td>
+  <td><?= $animal['sexo'] ?></td>
   <td><?= $animal['raza'] ?></td>
   <td><?= $animal['estado'] ?></td>
   <td><?= $animal['edad'] ?> años</td>
   <td><?= $animal['promedio'] ?> litros</td>
   <td>
-    <a href="editar.php?id=<?= $animal['id'] ?>">✏️ Editar</a> |
-    <a href="eliminar.php?id=<?= $animal['id'] ?>" onclick="return confirm('¿Inactivar este animal?')">❌ Eliminar</a>
+    <a href="editar.php?id=<?= $animal['id'] ?>">Editar</a> |
+    <a href="eliminar.php?id=<?= $animal['id'] ?>" onclick="return confirm('¿Inactivar este animal?')">Eliminar</a> |
+    <a href="registro.php?id=<?= $animal['id'] ?>">Registro</a>
   </td>
 </tr>
 <?php endforeach; ?>

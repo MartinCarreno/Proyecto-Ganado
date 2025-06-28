@@ -15,6 +15,7 @@ CREATE TABLE animales (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     tipo ENUM('vaca', 'toro', 'cría') NOT NULL,
+    sexo ENUM('M','F') NOT NULL,
     raza VARCHAR(100),
     fecha_nacimiento DATE,
     peso DECIMAL(5,2),

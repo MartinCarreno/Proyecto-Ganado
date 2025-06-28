@@ -11,6 +11,7 @@ exports.getById = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
+  console.log(req.body);
   await Animal.create(req.body);
   res.json({ status: 'Animal creado' });
 };

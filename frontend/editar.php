@@ -20,9 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form method="post">
   Nombre: <input name="nombre" value="<?= $animal['nombre'] ?>"><br>
   Tipo: <input name="tipo" value="<?= $animal['tipo'] ?>"><br>
-  Raza: <input name="raza" value="<?= $animal['raza'] ?>"><br>
-  Fecha Nac: <input type="date" name="fecha_nacimiento" value="<?= $animal['fecha_nacimiento'] ?>"><br>
-  Peso: <input type="number" name="peso" value="<?= $animal['peso'] ?>"><br>
-  Estado: <input name="estado" value="<?= $animal['estado'] ?>"><br>
+  Sexo: <select name="sexo">
+    <option value="M" <?= $animal['sexo'] === 'M' ? 'selected' : '' ?>>Macho</option>
+    <option value="F" <?= $animal['sexo'] === 'F' ? 'selected' : '' ?>>Hembra</option>
+  </select><br>
+  Raza: <input name="raza" value="<?= $animal['raza'] ?>"></br>
+  Fecha Nac: <input type="date" name="fecha_nacimiento" value="<?= $animal['fecha_nacimiento'] ?>"></br>
+  Peso: <input type="number" name="peso" value="<?= $animal['peso'] ?>"></br>
+  Estado: <input name="estado" value="<?= $animal['estado'] ?>"></br>
   <button type="submit">Actualizar</button>
 </form>

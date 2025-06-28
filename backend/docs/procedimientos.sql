@@ -7,6 +7,7 @@ CREATE PROCEDURE registrar_parto (
     IN p_animal_id INT,
     IN p_fecha DATE,
     IN p_resultado ENUM('exitoso','fallido'),
+    IN sexo ENUM('M','F'),
     IN p_cria_nombre VARCHAR(100)
 )
 BEGIN
@@ -14,8 +15,8 @@ BEGIN
     VALUES (p_animal_id, p_fecha, p_resultado, p_cria_nombre);
 
     IF p_resultado = 'exitoso' THEN
-        INSERT INTO animales (nombre, tipo, raza, fecha_nacimiento, estado)
-        SELECT p_cria_nombre, 'cría', raza, p_fecha, 'activo'
+        INSERT INTO animales (nombre, tipo, sexo, raza, fecha_nacimiento, estado)
+        SELECT p_cria_nombre, 'cría', sexo, raza, p_fecha, 'activo'
         FROM animales WHERE id = p_animal_id;
     END IF;
 END$$
@@ -48,6 +49,7 @@ BEGIN
     a.id,
     a.nombre,
     a.tipo,
+    a.sexo,
     a.raza,
     a.estado,
     edad_animal(a.id) AS edad,

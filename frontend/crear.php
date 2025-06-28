@@ -21,6 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <option value="toro">Toro</option>
     <option value="cría">Cría</option>
   </select><br>
+  Sexo: <select name="sexo">
+    <option value="M">Macho</option>
+    <option value="F">Hembra</option>
+  </select><br>
   Raza: <input name="raza"><br>
   Fecha Nac: <input type="date" name="fecha_nacimiento"><br>
   Peso: <input type="number" step="0.1" name="peso"><br>

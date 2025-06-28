@@ -14,11 +14,13 @@ const animalRoutes = require('./routes/animalRoutes');
 const vacunaRoutes = require('./routes/vacunaRoutes');
 const produccionRoutes = require('./routes/produccionRoutes');
 const utilsRoutes = require('./routes/utilsRoutes');
+const partoRoutes = require('./routes/partoRoutes');
 
 // Usar rutas con prefijo /api
 app.use('/api/animales', animalRoutes);
 app.use('/api/vacunas', vacunaRoutes);
 app.use('/api/produccion', produccionRoutes);
+app.use('/api/parto', partoRoutes);
 app.use('/api/utils', utilsRoutes);
 
 // Inicio del servidor

@@ -18,9 +18,8 @@ if (isset($stats[0]) && isset($stats[0][0])) {
 } elseif (isset($stats[0])) {
     $stats = $stats[0];
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

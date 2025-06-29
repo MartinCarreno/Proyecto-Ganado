@@ -1,15 +1,6 @@
 
 -- Tablas para la base de datos del sistema de gestión de ganado
 
--- Usuarios
-CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    contraseña VARCHAR(255) NOT NULL
-);
-
-
 -- Animales
 CREATE TABLE animales (
     id INT AUTO_INCREMENT PRIMARY KEY,

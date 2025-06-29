@@ -27,9 +27,9 @@ frontend/
 Instalación y Primeros Pasos
 ----------------------------
 1. Instalaciones
-   - Instalar PHP
-   - Instalar Node.js y dar acceso a instalaciones por npm
-   - Instala MySQL y crea la base de datos `ganaderia`.
+   - Instalar PHP (como instalar php: https://www.youtube.com/watch?v=8BmvKpYhiQ0)
+   - Instalar Node.js y dar acceso a instalaciones por npm (https://nodejs.org/en)
+   - Instala MySQL y crea la base de datos `ganaderia`. 
 
 
 2. Ejecuta los scripts SQL que están en `backend/docs/` en este orden:

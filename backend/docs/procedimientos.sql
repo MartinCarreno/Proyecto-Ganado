@@ -74,3 +74,30 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+
+-- Este procedimiento devuelve los 5 productores con mayor promedio de leche.
+DELIMITER //
+CREATE PROCEDURE top_productores()
+BEGIN
+  SELECT 
+    a.id, a.nombre, ROUND(promedio_leche(a.id), 2) AS promedio
+  FROM animal a
+  WHERE a.estado = 'activo'
+  ORDER BY promedio DESC
+  LIMIT 5;
+END;
+//
+DELIMITER ;
+
+-- Este procedimiento devuelve un resumen de los partos, agrupados por resultado (exitoso o fallido).
+DELIMITER //
+CREATE PROCEDURE resumen_partos()
+BEGIN
+  SELECT 
+    resultado, COUNT(*) AS cantidad
+  FROM parto
+  GROUP BY resultado;
+END;
+//
+DELIMITER ;

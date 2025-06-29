@@ -10,7 +10,7 @@ $vacunas = json_decode(file_get_contents("http://localhost:3000/api/vacunas/anim
 
 
 // Obtener partos
-$partos = json_decode(file_get_contents("http://localhost:3000/api/partos/animal/$id"), true);
+$partos = json_decode(file_get_contents("http://localhost:3000/api/parto/animal/$id"), true);
 
 // Obtener producción
 $produccion = json_decode(file_get_contents("http://localhost:3000/api/produccion/$id"), true);
